@@ -23,51 +23,51 @@ import { DataKeyType } from '@shared/models/telemetry/telemetry.models';
 
 export declare type ChartType = 'line' | 'pie' | 'bar' | 'state' | 'graph';
 
-export declare type TbFlotSettings = TbFlotBaseSettings & TbFlotGraphSettings & TbFlotBarSettings & TbFlotPieSettings;
+export declare type IotopFlotSettings = IotopFlotBaseSettings & IotopFlotGraphSettings & IotopFlotBarSettings & IotopFlotPieSettings;
 
 export declare type TooltipValueFormatFunction = (value: any) => string;
 
-export declare type TbFlotTicksFormatterFunction = (t: number, a?: TbFlotPlotAxis) => string;
+export declare type IotopFlotTicksFormatterFunction = (t: number, a?: IotopFlotPlotAxis) => string;
 
-export interface TbFlotSeries extends DatasourceData, JQueryPlotSeriesOptions {
-  dataKey: TbFlotDataKey;
+export interface IotopFlotSeries extends DatasourceData, JQueryPlotSeriesOptions {
+  dataKey: IotopFlotDataKey;
   xaxisIndex?: number;
   yaxisIndex?: number;
   yaxis?: number;
 }
 
-export interface TbFlotDataKey extends DataKey {
-  settings?: TbFlotKeySettings;
+export interface IotopFlotDataKey extends DataKey {
+  settings?: IotopFlotKeySettings;
   tooltipValueFormatFunction?: TooltipValueFormatFunction;
 }
 
-export interface TbFlotPlotAxis extends JQueryPlotAxis, TbFlotAxisOptions {
-  options: TbFlotAxisOptions;
+export interface IotopFlotPlotAxis extends JQueryPlotAxis, IotopFlotAxisOptions {
+  options: IotopFlotAxisOptions;
 }
 
-export interface TbFlotAxisOptions extends JQueryPlotAxisOptions {
+export interface IotopFlotAxisOptions extends JQueryPlotAxisOptions {
   tickUnits?: string;
   hidden?: boolean;
   keysInfo?: Array<{hidden: boolean}>;
-  ticksFormatterFunction?: TbFlotTicksFormatterFunction;
+  ticksFormatterFunction?: IotopFlotTicksFormatterFunction;
 }
 
-export interface TbFlotPlotDataSeries extends JQueryPlotDataSeries {
+export interface IotopFlotPlotDataSeries extends JQueryPlotDataSeries {
   datasource?: Datasource;
-  dataKey?: TbFlotDataKey;
+  dataKey?: IotopFlotDataKey;
   percent?: number;
 }
 
-export interface TbFlotPlotItem extends jquery.flot.item {
-  series: TbFlotPlotDataSeries;
+export interface IotopFlotPlotItem extends jquery.flot.item {
+  series: IotopFlotPlotDataSeries;
 }
 
-export interface TbFlotHoverInfo {
-  seriesHover: Array<TbFlotSeriesHoverInfo>;
+export interface IotopFlotHoverInfo {
+  seriesHover: Array<IotopFlotSeriesHoverInfo>;
   time?: any;
 }
 
-export interface TbFlotSeriesHoverInfo {
+export interface IotopFlotSeriesHoverInfo {
   hoverIndex: number;
   units: string;
   decimals: number;
@@ -80,19 +80,19 @@ export interface TbFlotSeriesHoverInfo {
   distance: number;
 }
 
-export interface TbFlotThresholdMarking {
+export interface IotopFlotThresholdMarking {
   lineWidth?: number;
   color?: string;
   [key: string]: any;
 }
 
-export interface TbFlotThresholdKeySettings {
+export interface IotopFlotThresholdKeySettings {
   yaxis: number;
   lineWidth: number;
   color: string;
 }
 
-export interface TbFlotGridSettings {
+export interface IotopFlotGridSettings {
   color: string;
   backgroundColor: string;
   tickColor: string;
@@ -103,19 +103,19 @@ export interface TbFlotGridSettings {
   margin: number;
 }
 
-export interface TbFlotXAxisSettings {
+export interface IotopFlotXAxisSettings {
   showLabels: boolean;
   title: string;
   color: boolean;
 }
 
-export interface TbFlotSecondXAxisSettings {
-  axisPosition: TbFlotXAxisPosition;
+export interface IotopFlotSecondXAxisSettings {
+  axisPosition: IotopFlotXAxisPosition;
   showLabels: boolean;
   title: string;
 }
 
-export interface TbFlotYAxisSettings {
+export interface IotopFlotYAxisSettings {
   min: number;
   max: number;
   showLabels: boolean;
@@ -126,7 +126,7 @@ export interface TbFlotYAxisSettings {
   tickSize: number;
 }
 
-export interface TbFlotBaseSettings {
+export interface IotopFlotBaseSettings {
   stack: boolean;
   shadowSize: number;
   fontColor: string;
@@ -135,44 +135,44 @@ export interface TbFlotBaseSettings {
   tooltipCumulative: boolean;
   tooltipValueFormatter: string;
   hideZeros: boolean;
-  grid: TbFlotGridSettings;
-  xaxis: TbFlotXAxisSettings;
-  yaxis: TbFlotYAxisSettings;
+  grid: IotopFlotGridSettings;
+  xaxis: IotopFlotXAxisSettings;
+  yaxis: IotopFlotYAxisSettings;
 }
 
-export interface TbFlotComparisonSettings {
+export interface IotopFlotComparisonSettings {
   comparisonEnabled: boolean;
   timeForComparison: moment_.unitOfTime.DurationConstructor;
-  xaxisSecond: TbFlotSecondXAxisSettings;
+  xaxisSecond: IotopFlotSecondXAxisSettings;
 }
 
-export interface TbFlotThresholdsSettings {
+export interface IotopFlotThresholdsSettings {
   thresholdsLineWidth: number;
 }
 
-export interface TbFlotCustomLegendSettings {
+export interface IotopFlotCustomLegendSettings {
   customLegendEnabled: boolean;
-  dataKeysListForLabels: Array<TbFlotLabelPatternSettings>;
+  dataKeysListForLabels: Array<IotopFlotLabelPatternSettings>;
 }
 
-export interface TbFlotLabelPatternSettings {
+export interface IotopFlotLabelPatternSettings {
   name: string;
   type: DataKeyType;
   settings?: any;
 }
 
-export interface TbFlotGraphSettings extends TbFlotBaseSettings, TbFlotThresholdsSettings, TbFlotComparisonSettings, TbFlotCustomLegendSettings {
+export interface IotopFlotGraphSettings extends IotopFlotBaseSettings, IotopFlotThresholdsSettings, IotopFlotComparisonSettings, IotopFlotCustomLegendSettings {
   smoothLines: boolean;
 }
 
 export declare type BarAlignment = 'left' | 'right' | 'center';
 
-export interface TbFlotBarSettings extends TbFlotBaseSettings, TbFlotThresholdsSettings, TbFlotComparisonSettings, TbFlotCustomLegendSettings {
+export interface IotopFlotBarSettings extends IotopFlotBaseSettings, IotopFlotThresholdsSettings, IotopFlotComparisonSettings, IotopFlotCustomLegendSettings {
   defaultBarWidth: number;
   barAlignment: BarAlignment;
 }
 
-export interface TbFlotPieSettings {
+export interface IotopFlotPieSettings {
   radius: number;
   innerRadius: number;
   tilt: number;
@@ -186,13 +186,13 @@ export interface TbFlotPieSettings {
   fontSize: number;
 }
 
-export declare type TbFlotYAxisPosition = 'left' | 'right';
-export declare type TbFlotXAxisPosition = 'top' | 'bottom';
+export declare type IotopFlotYAxisPosition = 'left' | 'right';
+export declare type IotopFlotXAxisPosition = 'top' | 'bottom';
 
-export declare type TbFlotThresholdValueSource = 'predefinedValue' | 'entityAttribute';
+export declare type IotopFlotThresholdValueSource = 'predefinedValue' | 'entityAttribute';
 
-export interface TbFlotKeyThreshold {
-  thresholdValueSource: TbFlotThresholdValueSource;
+export interface IotopFlotKeyThreshold {
+  thresholdValueSource: IotopFlotThresholdValueSource;
   thresholdEntityAlias: string;
   thresholdAttribute: string;
   thresholdValue: number;
@@ -200,13 +200,13 @@ export interface TbFlotKeyThreshold {
   color: string;
 }
 
-export interface TbFlotKeyComparisonSettings {
+export interface IotopFlotKeyComparisonSettings {
   showValuesForComparison: boolean;
   comparisonValuesLabel: string;
   color: string;
 }
 
-export interface TbFlotKeySettings {
+export interface IotopFlotKeySettings {
   excludeFromStacking: boolean;
   hideDataByDefault: boolean;
   disableDataHiding: boolean;
@@ -226,10 +226,10 @@ export interface TbFlotKeySettings {
   axisTitle: string;
   axisTickDecimals: number;
   axisTickSize: number;
-  axisPosition: TbFlotYAxisPosition;
+  axisPosition: IotopFlotYAxisPosition;
   axisTicksFormatter: string;
-  thresholds: TbFlotKeyThreshold[];
-  comparisonSettings: TbFlotKeyComparisonSettings;
+  thresholds: IotopFlotKeyThreshold[];
+  comparisonSettings: IotopFlotKeyComparisonSettings;
 }
 
 export function flotSettingsSchema(chartType: ChartType): JsonSettingsSchema {

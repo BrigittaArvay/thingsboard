@@ -219,6 +219,8 @@ export class WidgetContext {
   hiddenData?: Array<{data: DataSet}>;
   timeWindow?: WidgetTimewindow;
 
+  total: number;
+
   hideTitlePanel = false;
 
   widgetTitle?: string;

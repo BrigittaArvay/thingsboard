@@ -89,6 +89,7 @@ import moment from 'moment';
 
 import cssjs from '@core/css/css';
 import { TbFlot } from '@home/components/widget/lib/flot-widget';
+import { IotopFlot } from '@home/components/widget/lib/flot-widget-iotop';
 import { TbAnalogueCompass } from '@home/components/widget/lib/analogue-compass';
 import { TbAnalogueRadialGauge } from '@home/components/widget/lib/analogue-radial-gauge';
 import { TbAnalogueLinearGauge } from '@home/components/widget/lib/analogue-linear-gauge';
@@ -104,6 +105,7 @@ const tinycolor = tinycolor_;
 (window as any).cssjs = cssjs;
 (window as any).moment = moment;
 (window as any).TbFlot = TbFlot;
+(window as any).IotopFlot = IotopFlot;
 (window as any).TbAnalogueCompass = TbAnalogueCompass;
 (window as any).TbAnalogueRadialGauge = TbAnalogueRadialGauge;
 (window as any).TbAnalogueLinearGauge = TbAnalogueLinearGauge;
