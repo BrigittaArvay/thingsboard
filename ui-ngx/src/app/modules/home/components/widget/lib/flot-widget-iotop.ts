@@ -591,7 +591,6 @@ export class IotopFlot {
       this.updateTimeoutHandle = null;
     }
     if (this.subscription) {
-
       let maxLength = this.subscription.data[0].data.length;
       let maxData = 0;
       for (let m = 1; m < this.subscription.data.length; m++) {
@@ -606,11 +605,11 @@ export class IotopFlot {
       for (let l = 0; l < maxLength; l++) {
           let sum = 0;
           const timestamp = this.subscription.data[maxData].data[l][0];
-          /*for (let j = 0; j < this.subscription.data.length; j++) {
+          for (let j = 0; j < this.subscription.data.length; j++) {
               if (l < this.subscription.data[j].data.length) {
                   sum += this.subscription.data[j].data[l][1];
               }
-          }*/
+          }
           for (const subscriptionData of this.subscription.data) {
             if (l < subscriptionData.data.length) {
               sum += subscriptionData.data[l][1];
@@ -795,13 +794,13 @@ export class IotopFlot {
 
   private updateData(newData?) {
     if (newData) {
-      const copy = {...this.subscription.data};
+      let copy = [];
+      copy = [...this.subscription.data];
       for (let c = this.subscription.data.length-1; c > 0; c--) {
-        // copy.pop();
-        // console.log(copy[0]);
+        copy.pop();
       }
       copy[0].data = newData;
-      this.plot.setData(copy[0]);
+      this.plot.setData(copy);
     } else {
       this.plot.setData(this.subscription.data)
     }
