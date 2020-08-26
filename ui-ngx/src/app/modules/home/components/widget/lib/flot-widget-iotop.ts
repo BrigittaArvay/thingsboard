@@ -374,6 +374,7 @@ export class IotopFlot {
 
   private init($element: JQuery<any>, subscription: IWidgetSubscription) {
     this.subscription = subscription;
+    this.ctx.getExportData = this.getExportData;
     this.$element = $element;
     const colors: string[] = [];
     this.yaxes = [];
@@ -816,6 +817,11 @@ export class IotopFlot {
       this.plot = null;
       this.createPlot();
     }
+  }
+
+  public getExportData() {
+    const data = this.plot.getData();
+    return data[0].data;
   }
 
   private createYAxis(keySettings: IotopFlotKeySettings, units: string): IotopFlotAxisOptions {

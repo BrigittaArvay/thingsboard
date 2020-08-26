@@ -451,6 +451,15 @@ export class DashboardComponent extends PageComponent implements IDashboardCompo
     return this.dashboardWidgets.isNotHighlighted(widget);
   }
 
+  enableWidgetDataExport(widget: DashboardWidget) {
+    if (isDefined(widget.widget.getExportData)) {
+      console.log('defined');
+      return widget.widget.config.enableDataExport;
+    } else {
+      return false;
+    }
+}
+
   private scrollToWidget(widget: DashboardWidget, delay?: number) {
     const parentElement = this.gridster.el as HTMLElement;
     widget.gridsterItemComponent$().subscribe((gridsterItem) => {

@@ -148,6 +148,13 @@
                       matTooltipPosition="above">
                 <mat-icon>close</mat-icon>
               </button>
+              <button mat-button mat-icon-button
+                      [fxShow]="!isEdit && enableWidgetDataExport(widget)"
+                      (click)="exportWidgetData(widget);"
+                      matTooltip="{{ 'action.export-data' | translate }}"
+                      matTooltipPosition="above">
+                <mat-icon>file_download</mat-icon>
+              </button>
             </div>
           </div>
           <div fxFlex fxLayout="column" class="tb-widget-content">

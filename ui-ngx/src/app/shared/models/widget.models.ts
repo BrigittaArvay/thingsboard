@@ -401,6 +401,7 @@ export interface Widget {
   row: number;
   col: number;
   config: WidgetConfig;
+  getExportData?;
 }
 
 export interface GroupInfo {
