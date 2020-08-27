@@ -102,6 +102,8 @@ export class IotopFlot {
   private plotInited = false;
   private plot: JQueryPlot;
 
+  private flot: any;
+
   private createPlotTimeoutHandle: Timeout;
   private updateTimeoutHandle: Timeout;
   private resizeTimeoutHandle: Timeout;
@@ -814,9 +816,9 @@ export class IotopFlot {
     }
   }
 
-  public getExportData() {
-    const data = this.plot.getData();
-    return data[0].data;
+  private getExportData() {
+    const data = this.flot.plot.getData()[0].data;
+    return data;
   }
 
   private createYAxis(keySettings: IotopFlotKeySettings, units: string): IotopFlotAxisOptions {

@@ -375,7 +375,7 @@ export class WidgetConfigComponent extends PageComponent implements OnInit, Cont
             showTitle: config.showTitle,
             dropShadow: isDefined(config.dropShadow) ? config.dropShadow : true,
             enableFullscreen: isDefined(config.enableFullscreen) ? config.enableFullscreen : true,
-            enableDataExport: isDefined(config.enableDataExport) ? config.enableDataExport : true,
+            enableDataExport: isDefined(config.enableDataExport) ? config.enableDataExport : false,
             backgroundColor: config.backgroundColor,
             color: config.color,
             padding: config.padding,

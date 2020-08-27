@@ -92,6 +92,11 @@ export const ZIP_TYPE: FileType = {
   extension: 'zip'
 };
 
+export const CSV_TYPE: FileType = {
+  mimeType: 'text/csv',
+  extension: 'csv'
+};
+
 export function convertCSVToJson(csvdata: string, config: CsvToJsonConfig,
                                  onError: (messageId: string, params?: any) => void): CsvToJsonResult | number {
   config = config || {};

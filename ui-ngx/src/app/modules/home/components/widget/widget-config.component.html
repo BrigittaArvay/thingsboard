@@ -336,9 +336,8 @@
               {{ 'widget-config.enable-fullscreen' | translate }}
             </mat-checkbox>
             <mat-checkbox formControlName="enableDataExport" *ngIf="widgetType === widgetTypes.timeseries ||
-            widgetType === widgetTypes.latest ||
-            widgetType === widgetTypes.alarm">
-             Adat export
+              widgetType === widgetTypes.latest || widgetType === widgetTypes.alarm">
+              {{ 'widget-config.enable-data-export' | translate }}
             </mat-checkbox>
           </div>
           <div fxFlex>

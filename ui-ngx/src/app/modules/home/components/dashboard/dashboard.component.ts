@@ -54,6 +54,7 @@ import { MatMenuTrigger } from '@angular/material/menu';
 import { SafeStyle } from '@angular/platform-browser';
 import { distinct } from 'rxjs/operators';
 import { ResizeObserver } from '@juggle/resize-observer';
+import { ImportExportService } from '../import-export/import-export.service';
 
 @Component({
   selector: 'tb-dashboard',
@@ -170,6 +171,7 @@ export class DashboardComponent extends PageComponent implements IDashboardCompo
   constructor(protected store: Store<AppState>,
               private timeService: TimeService,
               private dialogService: DialogService,
+              private importExportService: ImportExportService,
               private breakpointObserver: BreakpointObserver,
               private differs: IterableDiffers,
               private kvDiffers: KeyValueDiffers,
@@ -452,13 +454,16 @@ export class DashboardComponent extends PageComponent implements IDashboardCompo
   }
 
   enableWidgetDataExport(widget: DashboardWidget) {
-    if (isDefined(widget.widget.getExportData)) {
-      console.log('defined');
+    if (isDefined(widget.widget.config.enableDataExport)) {
       return widget.widget.config.enableDataExport;
     } else {
       return false;
     }
-}
+  }
+
+  exportWidgetData(widget: DashboardWidget) {
+    this.importExportService.exportData(widget);
+  }
 
   private scrollToWidget(widget: DashboardWidget, delay?: number) {
     const parentElement = this.gridster.el as HTMLElement;
