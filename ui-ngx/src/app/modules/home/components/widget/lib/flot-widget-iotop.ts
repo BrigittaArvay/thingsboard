@@ -606,11 +606,6 @@ export class IotopFlot {
       for (let l = 0; l < maxLength; l++) {
           let sum = 0;
           const timestamp = this.subscription.data[maxData].data[l][0];
-          for (let j = 0; j < this.subscription.data.length; j++) {
-              if (l < this.subscription.data[j].data.length) {
-                  sum += this.subscription.data[j].data[l][1];
-              }
-          }
           for (const subscriptionData of this.subscription.data) {
             if (l < subscriptionData.data.length) {
               sum += subscriptionData.data[l][1];
