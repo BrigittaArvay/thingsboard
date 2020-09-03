@@ -39,7 +39,7 @@ import static org.thingsboard.rule.engine.api.TbRelationTypes.SUCCESS;
         name = "originator telemetry and sum",
         configClazz = TbGetTelemetryForEntityNodeConfiguration.class,
         nodeDescription = "Get Entity Telemetry for selected time range, aggregate it and add it to Message Data\n",
-        nodeDetails = "Test node stuff",
+        nodeDetails = "Add 'interval' time in seconds to metadata beforehand, the node will get all telemetry data from the previous 'interval' length of time and aggregate it.",
         uiResources = {"static/rulenode/custom-nodes-config.js"},
         configDirective = "tbIotopGetTelemetryAndAggregate")
 public class TbGetTelemetryForEntityNode implements TbNode {
